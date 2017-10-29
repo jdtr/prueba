@@ -1,0 +1,41 @@
+//Var
+$red:#FF3031; 
+$black-one:#222222;
+$black-two:#494949;
+$black-third:black;
+$gray-one:#929496;
+$gray-two:#EEE;
+
+//Mixins
+@mixin textPage(){
+	font-family: 'Lato', sans-serif;
+	font-size:15px;
+	color:$black-two;
+	line-height:normal;
+}
+@mixin seudoElm($cont:"",$pos:absolute){
+	content:$cont;
+	position:$pos;
+}
+@mixin radius($val){
+	border-radius:$val;
+}
+@mixin transition($time:.3s, $easing:linear, $delay:0s){
+	transition:$time $easing $delay;
+}
+@mixin animation($name, $time, $easing:linear, $delay:0s, $infinite:1, $fill-mode:none){
+	animation:$name $time $easing $delay $infinite $fill-mode;
+}
+@mixin centerY(){
+	top:50%;
+	transform:translateY(-50%);
+}
+@mixin centerX(){
+	left:50%;
+	transform:translateX(-50%);
+}
+@mixin centerTrans(){
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}

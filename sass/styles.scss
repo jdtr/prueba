@@ -1,0 +1,249 @@
+@import "base";
+
+/*Loading*/
+.loading{
+	position:fixed;
+	width:100%;
+	height:100%;
+	background-color:white;
+	top:0;
+	left:0;
+	z-index:1000;
+}
+.circle-i{
+	@include animation(circleI,2s, linear,0s,infinite);
+}
+.base-i{
+	@include animation(baseI,2s, linear,0s,infinite);
+}
+
+/*HEADER*/
+.header{
+	padding:25px 0;
+	width:100%;
+	z-index:500;
+}
+//Nav-mobile
+.nav-mobile{
+	position:fixed;
+	top:0;
+	right:0;
+	width:45px;
+	height:45px;
+	z-index:800;
+	border:1px solid darken($red,15%);
+	cursor:pointer;
+	span{
+		display:block;
+		width:30px;
+		height:5px;
+		margin-left:auto;
+		margin-right: auto;
+		&:nth-of-type(2){
+			margin-top:5px;
+			margin-bottom:5px;
+		}
+	}
+	&.active{
+		background-color: darken($red, 15%);
+		span:first-of-type{
+			transform:rotate(45deg);
+		}
+		span:nth-of-type(2){
+			margin-top:-5px;
+			margin-bottom:-5px;
+			opacity:0;
+		}
+		span:last-of-type{
+			transform:rotate(-45deg);
+		}
+	}
+}
+//Menu
+.item-menu{
+	display:inline-block;
+	position:relative;
+}
+.link-menu{
+	display:block;
+	position:relative;
+	padding:12px 14px;
+	color:$black-two;
+	@include transition();
+	&:hover{
+		color:$red;
+	}
+}
+
+/*Social media*/
+.social-media{
+	.radius{
+		display: inline-block;
+		margin:0 5px;
+		border:1px solid darken($red,15%);
+	}
+}
+
+/*SLIDER*/
+.slider, .cont-slider{
+	position:relative;
+	width:100%;
+}
+.cont-slider{
+	height:400px;
+}
+.item-slider{
+	position:absolute;
+	width:100%;
+	height:100%;
+}
+.txt-slider{
+	width:100%;
+	max-width:500px;
+	padding:0 15px;
+	opacity:0;
+}
+.title-slider{
+	font-size:30px;
+}
+/*Owl-carousel*/
+.owl-carousel .owl-stage-outer, .owl-carousel .owl-stage, 
+.owl-carousel .owl-item{
+	height:100%;
+}
+.owl-carousel .owl-item{
+	&.active{
+		.txt-slider{
+			@include animation(itemOpacity,.5s, ease-in,0s,1,forwards);
+		}
+	}
+}
+.owl-dots{
+	position:absolute;
+	width:100%;
+	height:20px;
+	left:0;
+	bottom:20px;
+	text-align:center;
+}
+.owl-dot{
+	display:inline-block;
+	width:18px;
+	height:18px;
+	margin:0 5px;
+	border:1px solid $gray-one;
+	background-color:white;
+	@include radius(50%);
+	&.active{
+		background-color:$red;
+		border:1px solid darken($red,15%);
+	}
+}
+/*SERVICIOS*/
+.sect-services{
+	background-image:url(../img/services.jpg);
+}
+.item-service{
+	padding:25px;
+	width:100%;
+	max-width:400px;
+	height:100%;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:transparent;
+	@include radius(10px);
+	&:hover{
+		background-color:white;
+		.radius-icon-service{
+			background-color:$red;
+			color:white;
+			transform:rotateY(180deg);
+		}
+		.title-section, p{
+			color:inherit;
+		}
+		.btn-white{
+			background-color:$red;
+			color:white;
+			@include animation(zoomBtn,.5s);
+		}
+	}
+}
+.item-figure{
+	padding:0 20px;
+	width:50%;
+	margin-bottom:15px;
+}
+/*INTERNAL*/
+.banner-hidrocaz{
+	background-image:url(../img-opt/banner_lintek.jpg);
+}
+.txt-banner{
+	position:relative;
+	.fadeInDown, .fadeIn{
+		animation-delay:0.8s;
+	}
+}
+.radius-banner, .title-banner{
+	opacity:0;
+}
+
+/*Info-contact*/
+.info-contact{
+	li{
+		display: inline-block;
+		margin-right: 10px;
+	}
+	.radius-info{
+		left:0;
+	} 
+}
+/*Form-cont*/
+.form-cont{
+	input[type="text"], input[type="email"], input[type="tel"], input[type="email"], 
+	input[type="password"], textarea, select{
+		width:100%;
+		padding-left:45px;
+	}
+	textarea{
+		height: 140px;
+	}
+}
+.item-field{
+	position:relative;
+	em{
+		font-size: 20px;
+		left:30px;
+	}
+}
+.item-field-text{
+	em{
+		position:absolute;
+		top:12px;
+	}
+}
+/*Map*/
+#map{
+	width:100%;
+	height:350px;
+}
+
+/*Footer*/
+.item-social{
+	display:inline-block;
+	margin-right:15px;
+	&:hover{
+		font-weight: bold;
+		.radius-footer-social{
+			transform:translateY(-50%) scale(1.1);
+		}
+	}
+}
+.radius-footer-social{
+	left:0;
+}
+.copyright{
+	padding:10px 15px;
+}
+/*Responsive*/
+@import "responsive";
